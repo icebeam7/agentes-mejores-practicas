@@ -24,7 +24,53 @@
 
 ## Paso 2. Código
 
-- Crea un nuevo repositorio. Luego, crea un Codespace a partir de él, donde crearás un proyecto de .NET y escribirás el código de un Agente Navideño.
+- Crea un nuevo repositorio (con el nombre que desees). De preferencia, incluye un archivo .gitignore de Dotnet.
+
+Crea un archivo llamado `.devcontainer/devcontainer.json` con el siguiente contenido:
+
+```
+{
+	"name": "C# (.NET)",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:10.0",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {
+			"version": "latest",
+			"bicepVersion": "latest"
+		}
+	}
+}
+```
+
+Luego, crea un Codespace a partir de él. Ejecuta el siguiente comando en la terminal:
+
+```
+az login
+```
+
+Ahora crea un proyecto de .NET que se usará para crear un Agente Navideño.
+
+En la Terminal:
+
+```
+dotnet new console -n AgenteApp -o .
+```
+
+Agrega paquetes en la Terminal:
+
+```
+dotnet add package Azure.AI.OpenAI --version 2.7.0-beta.2
+dotnet add package Azure.Identity --version 1.17.1
+dotnet add package Microsoft.Agents.AI --version 1.0.0-preview.251204.1
+dotnet add package Microsoft.Agents.AI.OpenAI --version 1.0.0-preview.251204.1
+```
+
+Crea los siguientes archivos (con sus carpetas respectivas):
+
+* assets/datos.json
+* tools/Navidad.cs
+* Program.cs
+
+Obtén el código de los archivos desde este repositorio: [Agente Navideño](https://github.com/icebeam7/agente-navideno).
 
 Consideraciones:
 
