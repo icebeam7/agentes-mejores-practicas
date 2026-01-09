@@ -62,7 +62,7 @@ Crea los siguientes archivos (con sus carpetas respectivas):
 * tools/Navidad.cs
 * Program.cs
 
-Obtén el código de los archivos desde este repositorio: [Agente Navideño](https://github.com/icebeam7/agente-navideno).
+Obtén el código de los archivos desde este repositorio: [Agente Navideño](https://github.com/icebeam7/agente-navideno-v1).
 
 Consideraciones:
 
