@@ -1,0 +1,117 @@
+## Paso 1. Creación y configuración de recursos:
+
+- Crea un recurso de Foundry en el Portal de Azure
+
+![Foundry en Azure](https://github.com/user-attachments/assets/f1a8a33d-4562-4d4b-b97b-4f8aa00129da)
+
+![Datos del recurso](https://github.com/user-attachments/assets/ead1a891-f68f-44b0-99c2-4d41000b9b61)
+
+- Da clic en Ir al Portal de Foundry y selecciona la nueva experiencia
+
+![Ir al portal de Foundry](https://github.com/user-attachments/assets/ce73e692-6a75-4934-beb2-14573345ee6f)
+
+- Copia los valores de endpoint, clave y region y pégalos en un bloc de notas, para usarlos posteriormente
+
+![Copiar los datos sensibles del proyecto](https://github.com/user-attachments/assets/38c97a96-c87c-4746-820c-bff41397ea2a)
+
+- Crea un modelo (gpt-4.1) dando clic en el menú Build, luego elige Models y selecciona Deploy a base model.
+
+![Crear modelo](https://github.com/user-attachments/assets/152b2bfc-5c84-40cf-b421-775cac2dd1d1)
+
+![gpt-4.1](https://github.com/user-attachments/assets/9dc97aa2-4cf3-4de0-9597-d9b8dcddc80a)
+
+![características](https://github.com/user-attachments/assets/505c0799-4500-44e5-baec-402853b8f827)
+
+## Paso 2. Código
+
+- Crea un nuevo repositorio. Luego, crea un Codespace a partir de él, donde crearás un proyecto de .NET y escribirás el código de un Agente Navideño.
+
+Consideraciones:
+
+### Diseño de Prompts y Herramientas
+
+Un buen agente no es solo un prompt largo, es una combinación de:
+
+- Instrucciones claras
+- Herramientas bien definidas
+- Límites explícitos
+- Guardrails semánticos
+
+Ejemplo:
+
+```
+Rol:
+Eres un agente de apoyo a decisiones para [dominio].
+
+Objetivo:
+Ayudar al usuario a entender opciones y recomendar acciones basadas en datos disponibles.
+
+Límites:
+- No inventes información
+- Si faltan datos, solicita aclaraciones
+- No tomes decisiones finales
+- Si la solicitud del usuario es de otro dominio/tema, declina comentar al respecto
+
+Formato de respuesta:
+- Resumen corto
+- Opciones
+- Recomendación
+```
+
+### Herramientas (Tools / Actions) 
+
+Las herramientas reducen alucinaciones:
+
+- Base de conocimientos (documentos o base interna)
+- Funciones (tus propias funciones, APIs externas)
+
+Un agente decide cuándo usar una herramienta. 
+
+Prompts + tools = comportamiento confiable
+
+### Evaluación y Métricas
+
+Si no lo evalúas, no es un agente. Un agente no se evalua únicamente con prompts:
+
+- Dataset de preguntas y respuestas esperadas (Ground Truth Dataset)
+- Respuestas del agente
+- Evaluadores automáticos
+
+Métricas que se pueden evaluar:
+
+- Groundedness (¿usa la info correcta?)
+- Relevance
+- Coherence
+- Safety
+- ¡Y más!
+
+### Seguridad
+
+La seguridad no es una característica extra, **es parte del diseño del agente**.
+
+Ejemplos de reglas: 
+
+- “El agente no responde temas fuera del dominio”
+- “No genera contenido sensible”
+
+Considera:
+
+- Content filters
+- Instrucciones del sistema como guardrails
+- Uso de data boundaries
+
+### Costos
+
+Un agente eficiente es mejor que uno muy inteligente pero caro
+
+Lo siguiente tiene impacto en el costo de la solución:
+
+- Prompts largos
+- Respuestas extensas
+- Uso excesivo de tools
+
+Buenas prácticas
+
+- Prompts concisos
+- Respuestas con formato
+- Evaluar costo vs valor del agente
