@@ -6,21 +6,13 @@
 
 ![Datos del recurso](https://github.com/user-attachments/assets/ead1a891-f68f-44b0-99c2-4d41000b9b61)
 
-- Da clic en Ir al Portal de Foundry y selecciona la nueva experiencia
+- Da clic en Ir al Portal de Foundry y elige la experiencia anterior
 
-![Ir al portal de Foundry](https://github.com/user-attachments/assets/ce73e692-6a75-4934-beb2-14573345ee6f)
+- Copia el valor de endpoint (punto de conexion) en Azure OpenAI
 
-- Copia los valores de endpoint, clave y region y pégalos en un bloc de notas, para usarlos posteriormente
+![Endpoint](https://github.com/user-attachments/assets/867f25fb-76b5-4696-8d77-3ae2b1c33173)
 
-![Copiar los datos sensibles del proyecto](https://github.com/user-attachments/assets/38c97a96-c87c-4746-820c-bff41397ea2a)
-
-- Crea un modelo (gpt-4.1) dando clic en el menú Build, luego elige Models y selecciona Deploy a base model.
-
-![Crear modelo](https://github.com/user-attachments/assets/152b2bfc-5c84-40cf-b421-775cac2dd1d1)
-
-![gpt-4.1](https://github.com/user-attachments/assets/9dc97aa2-4cf3-4de0-9597-d9b8dcddc80a)
-
-![características](https://github.com/user-attachments/assets/505c0799-4500-44e5-baec-402853b8f827)
+- Implementa un modelo (gpt-4.1) 
 
 ## Paso 2. Código
 
@@ -41,7 +33,7 @@ Crea un archivo llamado `.devcontainer/devcontainer.json` con el siguiente conte
 }
 ```
 
-Luego, crea un Codespace a partir de él. Ejecuta el siguiente comando en la terminal:
+Luego, crea un Codespace a partir de él. Ejecuta el siguiente comando en la terminal para iniciar sesión en Azure:
 
 ```
 az login
